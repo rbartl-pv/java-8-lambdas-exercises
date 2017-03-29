@@ -11,7 +11,8 @@ import java.util.stream.Collector;
 
 public class GroupingBy<T, K> implements Collector<T, Map<K, List<T>>, Map<K, List<T>>> {
 
-    private final Function<? super T, ? extends K> classifier;
+    @SuppressWarnings("unused")
+	private final Function<? super T, ? extends K> classifier;
 
     public GroupingBy(Function<? super T, ? extends K> classifier) {
         this.classifier = classifier;

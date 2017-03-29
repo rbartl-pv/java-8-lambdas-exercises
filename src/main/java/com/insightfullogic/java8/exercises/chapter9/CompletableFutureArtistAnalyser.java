@@ -1,11 +1,10 @@
 package com.insightfullogic.java8.exercises.chapter9;
 
-import com.insightfullogic.java8.examples.chapter1.Artist;
-import com.insightfullogic.java8.exercises.Exercises;
-
-import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Function;
+
+import com.insightfullogic.java8.examples.chapter1.Artist;
+import com.insightfullogic.java8.exercises.Exercises;
 
 public class CompletableFutureArtistAnalyser implements ArtistAnalyzer {
 

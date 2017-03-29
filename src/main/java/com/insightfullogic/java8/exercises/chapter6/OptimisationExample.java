@@ -1,15 +1,20 @@
 package com.insightfullogic.java8.exercises.chapter6;
 
-import com.insightfullogic.java8.exercises.Exercises;
-import org.openjdk.jmh.Main;
-import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.runner.RunnerException;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
+
+import org.openjdk.jmh.Main;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.GenerateMicroBenchmark;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.runner.RunnerException;
+
+import com.insightfullogic.java8.exercises.Exercises;
 
 /**
  * Just run this class's main method and it will time benchmarks using the harness

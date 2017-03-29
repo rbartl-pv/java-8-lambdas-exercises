@@ -25,6 +25,7 @@ public class ConsoleFormatter implements ReportFormatter {
             out.print("]");
         }
         out.println();
+        out.close();
     }
 
 }

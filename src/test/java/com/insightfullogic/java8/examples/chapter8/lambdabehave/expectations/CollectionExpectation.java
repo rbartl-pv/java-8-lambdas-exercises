@@ -1,8 +1,8 @@
 package com.insightfullogic.java8.examples.chapter8.lambdabehave.expectations;
 
-import java.util.Collection;
+import static org.junit.Assert.assertTrue;
 
-import static junit.framework.Assert.assertTrue;
+import java.util.Collection;
 
 public class CollectionExpectation extends BoundExpectation {
 

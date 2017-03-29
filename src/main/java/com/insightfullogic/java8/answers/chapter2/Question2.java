@@ -1,9 +1,8 @@
 package com.insightfullogic.java8.answers.chapter2;
 
 import java.text.SimpleDateFormat;
-import javax.swing.text.DateFormatter;
 
-import static java.lang.ThreadLocal.withInitial;
+import javax.swing.text.DateFormatter;
 
 public class Question2 {
 

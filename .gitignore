@@ -7,3 +7,6 @@ target/
 
 # Vim
 *.swp
+/*.classpath
+/*.project
+/.settings/*.prefs

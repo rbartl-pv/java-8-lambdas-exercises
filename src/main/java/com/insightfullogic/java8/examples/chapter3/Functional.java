@@ -8,9 +8,11 @@ public class Functional {
     private JButton button = new JButton();
 
     // BEGIN field_assignment
-    private ActionEvent lastEvent;
+    @SuppressWarnings("unused")
+	private ActionEvent lastEvent;
 
-    private void registerHandler() {
+    @SuppressWarnings("unused")
+	private void registerHandler() {
         button.addActionListener((ActionEvent event) -> {
             this.lastEvent = event;
         });

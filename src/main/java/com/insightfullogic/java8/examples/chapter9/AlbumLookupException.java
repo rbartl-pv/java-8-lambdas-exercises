@@ -2,7 +2,9 @@ package com.insightfullogic.java8.examples.chapter9;
 
 public class AlbumLookupException extends RuntimeException {
 
-    public AlbumLookupException(Throwable cause) {
+	private static final long serialVersionUID = 1L;
+
+	public AlbumLookupException(Throwable cause) {
         super(cause);
     }
 

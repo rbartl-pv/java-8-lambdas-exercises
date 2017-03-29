@@ -1,16 +1,17 @@
 package com.insightfullogic.java8.examples.chapter2;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import javax.swing.*;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
+import javax.swing.JButton;
+
+import org.junit.Test;
 
 public class LambdaExercises {
 
@@ -19,7 +20,8 @@ public class LambdaExercises {
         assertTrue("Shown in the next chapter", true);
     }
 
-    @Test
+    @SuppressWarnings("unused")
+	@Test
     public void _1b() {
         // If you were to model each operation on a calculator as a function.
         Function<Double, Double> negate = (x) -> -1 * x;
@@ -27,7 +29,8 @@ public class LambdaExercises {
         Function<Double, Double> percent = (x) -> 100 * x;
     }
 
-    @Test
+    @SuppressWarnings("unused")
+	@Test
     public void _1c() {
         Function<Integer, Integer> one = x -> x + 1;
         // 2 isn't
@@ -49,7 +52,8 @@ public class LambdaExercises {
     @Test
     public void _3a() {
         // yes
-        Runnable helloWorld = () -> System.out.println("hello world");
+        @SuppressWarnings("unused")
+		Runnable helloWorld = () -> System.out.println("hello world");
     }
 
     @Test
