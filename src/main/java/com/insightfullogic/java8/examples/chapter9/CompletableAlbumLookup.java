@@ -61,9 +61,10 @@ future.complete(artist);
         // END complete
     }
 
-    private void processExceptionally(CompletableFuture<Album> future, String name) {
+    @SuppressWarnings("unused")
+	private void processExceptionally(CompletableFuture<Album> future, String name) {
         // BEGIN completeExceptionally
-future.completeExceptionally(new AlbumLookupException("Unable to find " + name));
+    	future.completeExceptionally(new AlbumLookupException("Unable to find " + name));
         // END completeExceptionally
     }
 

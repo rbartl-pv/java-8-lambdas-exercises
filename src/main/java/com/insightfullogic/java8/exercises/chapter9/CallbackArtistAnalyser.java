@@ -8,7 +8,8 @@ import java.util.function.Function;
 
 public class CallbackArtistAnalyser implements ArtistAnalyzer {
 
-    private final Function<String, Artist> artistLookupService;
+    @SuppressWarnings("unused")
+	private final Function<String, Artist> artistLookupService;
 
     public CallbackArtistAnalyser(Function<String, Artist> artistLookupService) {
         this.artistLookupService = artistLookupService;
@@ -18,7 +19,8 @@ public class CallbackArtistAnalyser implements ArtistAnalyzer {
         Exercises.replaceThisWithSolution();
     }
 
-    private long getNumberOfMembers(String artistName) {
+    @SuppressWarnings("unused")
+	private long getNumberOfMembers(String artistName) {
         return Exercises.replaceThisWithSolution();
     }
 

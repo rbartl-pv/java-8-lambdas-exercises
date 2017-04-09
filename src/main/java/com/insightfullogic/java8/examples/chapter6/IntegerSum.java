@@ -71,11 +71,12 @@ public class IntegerSum {
     }
 
     // BEGIN addIntegers
-private int addIntegers(List<Integer> values) {
-    return values.parallelStream()
-                 .mapToInt(i -> i)
-                 .sum();
-}
+	@SuppressWarnings("unused")
+	private int addIntegers(List<Integer> values) {
+	    return values.parallelStream()
+	                 .mapToInt(i -> i)
+	                 .sum();
+	}
     // END addIntegers
 
     @GenerateMicroBenchmark
