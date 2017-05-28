@@ -9,15 +9,16 @@ public class Functional {
 
     // BEGIN field_assignment
     @SuppressWarnings("unused")
-	private ActionEvent lastEvent;
+    private ActionEvent lastEvent;
 
     @SuppressWarnings("unused")
-	private void registerHandler() {
-        button.addActionListener((ActionEvent event) -> {
+    private void registerHandler() {
+        button.addActionListener((
+                ActionEvent event
+        ) -> {
             this.lastEvent = event;
         });
     }
     // END field_assignment
-
 
 }

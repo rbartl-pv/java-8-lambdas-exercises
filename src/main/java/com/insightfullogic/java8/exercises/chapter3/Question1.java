@@ -9,14 +9,14 @@ import com.insightfullogic.java8.exercises.Exercises;
 
 public class Question1 {
     public static int addUp(Stream<Integer> numbers) {
-        return Exercises.replaceThisWithSolution();
+	return numbers.reduce(0, (acc, x) -> acc + x);
     }
 
     public static List<String> getNamesAndOrigins(List<Artist> artists) {
-        return Exercises.replaceThisWithSolution();
+	return Exercises.replaceThisWithSolution();
     }
 
     public static List<Album> getAlbumsWithAtMostThreeTracks(List<Album> input) {
-        return Exercises.replaceThisWithSolution();
+	return Exercises.replaceThisWithSolution();
     }
 }
