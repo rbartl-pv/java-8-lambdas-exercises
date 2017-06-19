@@ -1,11 +1,12 @@
 package com.insightfullogic.java8.answers.chapter2;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Calendar;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class Question2Test {
 
     @Test

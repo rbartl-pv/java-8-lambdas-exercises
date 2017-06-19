@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 
 import javax.swing.text.DateFormatter;
 
+@SuppressWarnings("javadoc")
 public class Question2 {
 
 	public static ThreadLocal<DateFormatter> formatter = ThreadLocal

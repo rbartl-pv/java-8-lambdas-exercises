@@ -1,17 +1,20 @@
 package com.insightfullogic.java8.answers.chapter3;
 
-import com.insightfullogic.java8.examples.chapter1.Album;
-import com.insightfullogic.java8.examples.chapter1.SampleData;
-import com.insightfullogic.java8.answers.chapter3.Question1;
-import org.junit.Test;
+import static com.insightfullogic.java8.examples.chapter1.SampleData.aLoveSupreme;
+import static com.insightfullogic.java8.examples.chapter1.SampleData.manyTrackAlbum;
+import static com.insightfullogic.java8.examples.chapter1.SampleData.sampleShortAlbum;
+import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.insightfullogic.java8.examples.chapter1.SampleData.*;
-import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
+import com.insightfullogic.java8.examples.chapter1.Album;
+import com.insightfullogic.java8.examples.chapter1.SampleData;
+
+@SuppressWarnings("javadoc")
 public class Question1Test {
 
     @Test

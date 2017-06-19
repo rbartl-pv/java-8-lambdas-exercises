@@ -1,15 +1,16 @@
 package com.insightfullogic.java8.exercises.chapter9;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+@SuppressWarnings("javadoc")
 @RunWith(Parameterized.class)
 public class ArtistAnalyzerTest {
 

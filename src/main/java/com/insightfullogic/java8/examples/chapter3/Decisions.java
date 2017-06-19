@@ -1,59 +1,78 @@
 package com.insightfullogic.java8.examples.chapter3;
 
-import com.insightfullogic.java8.examples.chapter1.Album;
-import com.insightfullogic.java8.examples.chapter1.Artist;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
+import com.insightfullogic.java8.examples.chapter1.Album;
+import com.insightfullogic.java8.examples.chapter1.Artist;
 
+/**
+ * example class for illustrating purpose
+ */
 public class Decisions {
 
-    public static class Imperative {
-        // BEGIN origins_of_bands_meth_imp
-        public Set<String> originsOfBands(Album album) {
-            Set<String> nationalities = new HashSet<>();
-            for (Artist artist : album.getMusicianList()) {
-                if (artist.getName()
-                        .startsWith("The")) {
-                    String nationality = artist.getNationality();
-                    nationalities.add(nationality);
-                }
-            }
-            return nationalities;
-        }
-        // END origins_of_bands_meth_imp
-    }
+  /**
+   * imperative variant
+   */
+  public static class Imperative {
 
+    /**
+     * @param album album
+     * @return a set with the nationalities of artists who performed this album
+     */
+    // BEGIN origins_of_bands_meth_imp
     public Set<String> originsOfBands(Album album) {
-        // BEGIN origins_of_bands
-        Set<String> origins = album.getMusicians()
-                .filter(artist -> artist.getName()
-                        .startsWith("The"))
-                .map(artist -> artist.getNationality())
-                .collect(toSet());
-        // END origins_of_bands
-        return origins;
+      Set<String> nationalities = new HashSet<>();
+      for (Artist artist : album.getMusicianList()) {
+        if (artist.getName()
+            .startsWith("The")) {
+          String nationality = artist.getNationality();
+          nationalities.add(nationality);
+        }
+      }
+      return nationalities;
     }
+    // END origins_of_bands_meth_imp
+  }
 
-    public Set<String> originsOfBandsMisuse(Album album) {
-        // BEGIN misuse
-        List<Artist> musicians = album.getMusicians()
-                .collect(toList());
+  /**
+   * @param album album
+   * @return a set with the nationalities of artists who performed this album
+   */
+  public Set<String> originsOfBands(Album album) {
+    // BEGIN origins_of_bands
+    Set<String> origins = album.getMusicians()
+        .filter(artist -> artist.getName()
+            .startsWith("The"))
+        .map(artist -> artist.getNationality())
+        .collect(toSet());
+    // END origins_of_bands
+    return origins;
+  }
 
-        List<Artist> bands = musicians.stream()
-                .filter(artist -> artist.getName()
-                        .startsWith("The"))
-                .collect(toList());
+  /**
+   * @param album album
+   * @return a set with the nationalities of artists who performed this album
+   */
+  public Set<String> originsOfBandsMisuse(Album album) {
+    // BEGIN misuse
+    List<Artist> musicians = album.getMusicians()
+        .collect(toList());
 
-        Set<String> origins = bands.stream()
-                .map(artist -> artist.getNationality())
-                .collect(toSet());
-        // END misuse
-        return origins;
-    }
+    List<Artist> bands = musicians.stream()
+        .filter(artist -> artist.getName()
+            .startsWith("The"))
+        .collect(toList());
+
+    Set<String> origins = bands.stream()
+        .map(artist -> artist.getNationality())
+        .collect(toSet());
+    // END misuse
+    return origins;
+  }
 
 }

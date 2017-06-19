@@ -9,10 +9,14 @@ package com.insightfullogic.java8.examples.chapter1;
  * @author richard
  */
 public final class Track {
-    
+
     private final String name;
     private final int length;
 
+    /**
+     * @param name name of the track
+     * @param length length of the track
+     */
     public Track(String name, int length) {
         this.name = name;
         this.length = length;
@@ -32,6 +36,9 @@ public final class Track {
         return length;
     }
 
+    /**
+     * @return deep copy of the track
+     */
     public Track copy() {
         return new Track(name, length);
     }

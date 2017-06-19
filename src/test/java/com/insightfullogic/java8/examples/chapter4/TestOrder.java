@@ -1,21 +1,23 @@
 package com.insightfullogic.java8.examples.chapter4;
 
-import com.insightfullogic.java8.examples.chapter1.Album;
-import com.insightfullogic.java8.examples.chapter1.SampleData;
-import com.insightfullogic.java8.examples.chapter1.Track;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 
-import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.runners.Parameterized.Parameters;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
+import com.insightfullogic.java8.examples.chapter1.Album;
+import com.insightfullogic.java8.examples.chapter1.SampleData;
+import com.insightfullogic.java8.examples.chapter1.Track;
+
+@SuppressWarnings("javadoc")
 @RunWith(Parameterized.class)
 public class TestOrder {
 
@@ -29,7 +31,9 @@ public class TestOrder {
         return asList(data);
     }
 
-    private static interface OrderFactory extends Function<List<Album>, Order> {}
+    private static interface OrderFactory extends Function<List<Album>, Order> {
+      //functional interface
+    }
 
     private static Object[] of(OrderFactory factory) {
         return new Object[] { factory };

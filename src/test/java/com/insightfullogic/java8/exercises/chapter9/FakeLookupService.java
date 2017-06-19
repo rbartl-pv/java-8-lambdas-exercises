@@ -3,6 +3,7 @@ package com.insightfullogic.java8.exercises.chapter9;
 import com.insightfullogic.java8.examples.chapter1.Artist;
 import com.insightfullogic.java8.examples.chapter1.SampleData;
 
+@SuppressWarnings("javadoc")
 public class FakeLookupService {
 
     public Artist lookupArtistName(String name) {

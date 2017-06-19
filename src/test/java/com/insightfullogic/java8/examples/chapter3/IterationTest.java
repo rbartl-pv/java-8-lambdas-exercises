@@ -1,8 +1,10 @@
 package com.insightfullogic.java8.examples.chapter3;
 
-import com.insightfullogic.java8.examples.chapter1.SampleData;
 import org.junit.Test;
 
+import com.insightfullogic.java8.examples.chapter1.SampleData;
+
+@SuppressWarnings("javadoc")
 public class IterationTest {
 
     @Test

@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class OptionalExampleTest {
 
 	@Test

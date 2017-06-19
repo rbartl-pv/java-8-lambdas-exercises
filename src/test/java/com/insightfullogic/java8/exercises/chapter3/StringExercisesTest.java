@@ -1,14 +1,15 @@
 package com.insightfullogic.java8.exercises.chapter3;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class StringExercisesTest {
 
     @Test

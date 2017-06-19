@@ -14,6 +14,7 @@ import org.junit.Test;
 import com.insightfullogic.java8.examples.chapter1.Album;
 import com.insightfullogic.java8.examples.chapter1.SampleData;
 
+@SuppressWarnings("javadoc")
 public class Question1Test {
 
     @Test

@@ -1,10 +1,11 @@
 package com.insightfullogic.java8.examples.chapter8.command;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
+@SuppressWarnings("javadoc")
 public class MockEditor implements Editor {
 
     private final List<String> actions = new ArrayList<>();

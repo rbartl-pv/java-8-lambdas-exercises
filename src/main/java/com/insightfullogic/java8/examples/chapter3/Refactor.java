@@ -1,101 +1,129 @@
 package com.insightfullogic.java8.examples.chapter3;
 
-import com.insightfullogic.java8.examples.chapter1.Album;
-import com.insightfullogic.java8.examples.chapter1.Track;
+import static java.util.stream.Collectors.toSet;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static java.util.stream.Collectors.toSet;
+import com.insightfullogic.java8.examples.chapter1.Album;
+import com.insightfullogic.java8.examples.chapter1.Track;
 
+/**
+ * example class for illustrative purpose of refactoring code into lambda expressions
+ */
 public class Refactor {
 
-    public static interface LongTrackFinder {
-        public Set<String> findLongTracks(List<Album> albums);
-    }
+  /**
+   * functional interface for finding long tracks
+   */
+  public static interface LongTrackFinder {
 
-    public static class Step0 implements LongTrackFinder {
-        // BEGIN findLongTracks_0
-        public Set<String> findLongTracks(List<Album> albums) {
-            Set<String> trackNames = new HashSet<>();
-            for (Album album : albums) {
-                for (Track track : album.getTrackList()) {
-                    if (track.getLength() > 60) {
-                        String name = track.getName();
-                        trackNames.add(name);
-                    }
-                }
-            }
-            return trackNames;
+    /**
+     * @param albums list of albums
+     * @return set of names of long tracks from the given albums
+     */
+    public Set<String> findLongTracks(List<Album> albums);
+  }
+
+  /**
+   * step 0 of refactoring process
+   */
+  public static class Step0 implements LongTrackFinder {
+
+    // BEGIN findLongTracks_0
+    public Set<String> findLongTracks(List<Album> albums) {
+      Set<String> trackNames = new HashSet<>();
+      for (Album album : albums) {
+        for (Track track : album.getTrackList()) {
+          if (track.getLength() > 60) {
+            String name = track.getName();
+            trackNames.add(name);
+          }
         }
-        // END findLongTracks_0
+      }
+      return trackNames;
     }
+    // END findLongTracks_0
+  }
 
-    public static class Step1 implements LongTrackFinder {
-        // BEGIN findLongTracks_1
-        public Set<String> findLongTracks(List<Album> albums) {
-            Set<String> trackNames = new HashSet<>();
-            albums.stream()
-                    .forEach(album ->
-                    {
-                        album.getTracks()
-                                .forEach(track ->
-                                {
-                                    if (track.getLength() > 60) {
-                                        String name = track.getName();
-                                        trackNames.add(name);
-                                    }
-                                });
-                    });
-            return trackNames;
-        }
-        // END findLongTracks_1
+  /**
+   * step 1 of refactoring process
+   */
+  public static class Step1 implements LongTrackFinder {
+
+    // BEGIN findLongTracks_1
+    public Set<String> findLongTracks(List<Album> albums) {
+      Set<String> trackNames = new HashSet<>();
+      albums.stream()
+          .forEach(album -> {
+            album.getTracks()
+                .forEach(track -> {
+                  if (track.getLength() > 60) {
+                    String name = track.getName();
+                    trackNames.add(name);
+                  }
+                });
+          });
+      return trackNames;
     }
+    // END findLongTracks_1
+  }
 
-    public static class Step2 implements LongTrackFinder {
-        // BEGIN findLongTracks_2
-        public Set<String> findLongTracks(List<Album> albums) {
-            Set<String> trackNames = new HashSet<>();
-            albums.stream()
-                    .forEach(album ->
-                    {
-                        album.getTracks()
-                                .filter(track -> track.getLength() > 60)
-                                .map(track -> track.getName())
-                                .forEach(name -> trackNames.add(name));
-                    });
-            return trackNames;
-        }
-        // END findLongTracks_2
+  /**
+   * step 2 of refactoring process
+   */
+  public static class Step2 implements LongTrackFinder {
+
+    // BEGIN findLongTracks_2
+    public Set<String> findLongTracks(List<Album> albums) {
+      Set<String> trackNames = new HashSet<>();
+      albums.stream()
+          .forEach(album -> {
+            album.getTracks()
+                .filter(track -> track.getLength() > 60)
+                .map(track -> track.getName())
+                .forEach(name -> trackNames.add(name));
+          });
+      return trackNames;
     }
+    // END findLongTracks_2
+  }
 
-    public static class Step3 implements LongTrackFinder {
-        // BEGIN findLongTracks_3
-        public Set<String> findLongTracks(List<Album> albums) {
-            Set<String> trackNames = new HashSet<>();
+  /**
+   * step 3 of refactoring process
+   */
+  public static class Step3 implements LongTrackFinder {
 
-            albums.stream()
-                    .flatMap(album -> album.getTracks())
-                    .filter(track -> track.getLength() > 60)
-                    .map(track -> track.getName())
-                    .forEach(name -> trackNames.add(name));
+    // BEGIN findLongTracks_3
+    public Set<String> findLongTracks(List<Album> albums) {
+      Set<String> trackNames = new HashSet<>();
 
-            return trackNames;
-        }
-        // END findLongTracks_3
+      albums.stream()
+          .flatMap(album -> album.getTracks())
+          .filter(track -> track.getLength() > 60)
+          .map(track -> track.getName())
+          .forEach(name -> trackNames.add(name));
+
+      return trackNames;
     }
+    // END findLongTracks_3
+  }
 
-    public static class Step4 implements LongTrackFinder {
-        // BEGIN findLongTracks_4
-        public Set<String> findLongTracks(List<Album> albums) {
-            return albums.stream()
-                    .flatMap(album -> album.getTracks())
-                    .filter(track -> track.getLength() > 60)
-                    .map(track -> track.getName())
-                    .collect(toSet());
-        }
-        // END findLongTracks_4
+  /**
+   * step 4 of refactoring process
+   */
+  public static class Step4 implements LongTrackFinder {
+
+    // BEGIN findLongTracks_4
+    public Set<String> findLongTracks(List<Album> albums) {
+      return albums.stream()
+          .flatMap(album -> album.getTracks())
+          .filter(track -> track.getLength() > 60)
+          .map(track -> track.getName())
+          .collect(toSet());
     }
+    // END findLongTracks_4
+  }
 
 }

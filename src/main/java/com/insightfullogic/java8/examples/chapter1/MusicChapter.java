@@ -13,10 +13,13 @@ import java.util.List;
  * @author Richard Warburton
  */
 public abstract class MusicChapter {
-    
+
     protected final List<Artist> artists;
     protected final List<Album> albums;
 
+    /**
+     * Constructor
+     */
     public MusicChapter() {
         artists = new ArrayList<>();
         albums = new ArrayList<>();
@@ -24,7 +27,7 @@ public abstract class MusicChapter {
     }
 
     private void loadData(String file) {
-        
+      // nothing happening here
     }
-    
+
 }

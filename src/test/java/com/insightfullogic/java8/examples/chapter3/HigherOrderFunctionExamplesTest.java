@@ -1,7 +1,10 @@
 package com.insightfullogic.java8.examples.chapter3;
 
-import com.insightfullogic.java8.examples.chapter1.Track;
-import org.junit.Test;
+import static java.lang.Character.isDigit;
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toList;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,12 +14,11 @@ import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static java.lang.Character.isDigit;
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
+import com.insightfullogic.java8.examples.chapter1.Track;
+
+@SuppressWarnings("javadoc")
 public class HigherOrderFunctionExamplesTest {
 
 	@Test
@@ -56,7 +58,7 @@ public class HigherOrderFunctionExamplesTest {
 	public void imperativeMinLength() {
 		// BEGIN imperativeMaxLength
 		List<Track> tracks = asList(
-				new Track("Bakai", 524), 
+				new Track("Bakai", 524),
 				new Track("Violets for Your Furs", 378),
 				new Track("Time Was", 451));
 
@@ -75,11 +77,11 @@ public class HigherOrderFunctionExamplesTest {
 	public void streamsMinLength() {
 		// BEGIN streamsMaxLength
 		List<Track> tracks = asList(
-				new Track("Bakai", 524), 
+				new Track("Bakai", 524),
 				new Track("Violets for Your Furs", 378),
 				new Track("Time Was", 451));
 
-		Track shortestTrack = 
+		Track shortestTrack =
 				tracks.stream()
 				.min(Comparator.comparing(track -> track.getLength()))
 				.get();
@@ -92,11 +94,11 @@ public class HigherOrderFunctionExamplesTest {
 	public void streamsAnyMatch() {
 		// BEGIN streamsAnyMatch
 		List<Track> tracksOnColtrane = asList(
-				new Track("Bakai", 524), 
+				new Track("Bakai", 524),
 				new Track("Violets for Your Furs", 378),
 				new Track("Time Was", 451));
 
-		boolean matchLength = 
+		boolean matchLength =
 				tracksOnColtrane.stream()
 				.anyMatch(track -> track.getLength() > 500);
 		assertTrue(matchLength);
@@ -107,7 +109,7 @@ public class HigherOrderFunctionExamplesTest {
 	public void imperativeAnyMatch() {
 		// BEGIN imperativeAnyMatch
 		List<Track> tracksOnColtrane = asList(
-				new Track("Bakai", 524), 
+				new Track("Bakai", 524),
 				new Track("Violets for Your Furs", 378),
 				new Track("Time Was", 451));
 
@@ -125,7 +127,7 @@ public class HigherOrderFunctionExamplesTest {
 	@Test
 	public void sumUsingReduce() {
 		// BEGIN count_using_reduce
-		int count = 
+		int count =
 				Stream.of(1, 2, 3)
 				.reduce(0, (acc, element) -> acc + element);
 
@@ -137,11 +139,11 @@ public class HigherOrderFunctionExamplesTest {
 	public void expandedReduce() {
 		// BEGIN expanded_reduce
 		BinaryOperator<Integer> accumulator = (acc, element) -> acc + element;
-		int count = 
+		int count =
 				accumulator.apply(
 						accumulator.apply(
-								accumulator.apply(0, 1), 
-						2), 
+								accumulator.apply(0, 1),
+						2),
 				3);
 		// END expanded_reduce
 
@@ -162,7 +164,7 @@ public class HigherOrderFunctionExamplesTest {
 	@Test
 	public void functionalStringsWithNumbers() {
 		// BEGIN strings_numbers_filter
-		List<String> beginningWithNumbers = 
+		List<String> beginningWithNumbers =
 				Stream.of("a", "1abc", "abc1")
 				.filter(value -> isDigit(value.charAt(0)))
 				.collect(toList());
@@ -188,7 +190,7 @@ public class HigherOrderFunctionExamplesTest {
 	@Test
 	public void flatMapCharacters() {
 		// BEGIN flatmap_characters
-		List<Integer> together = 
+		List<Integer> together =
 				Stream.of(asList(1, 2), asList(3, 4))
 				.flatMap(numbers -> numbers.stream())
 				.collect(toList());

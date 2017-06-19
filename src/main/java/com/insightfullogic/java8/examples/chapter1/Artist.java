@@ -5,75 +5,93 @@
 
 package com.insightfullogic.java8.examples.chapter1;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
-
 /**
  * Domain class for a popular music artist.
- * 
  * @author Richard Warburton
  */
 public final class Artist {
-    
-    private String name;
-    private List<Artist> members;
-    private String nationality;
-    
-    public Artist(String name, String nationality) {
-        this(name, Collections.emptyList(), nationality);
-    }
 
-    public Artist(String name, List<Artist> members, String nationality) {
-        Objects.requireNonNull(name);
-        Objects.requireNonNull(members);
-        Objects.requireNonNull(nationality);
-        this.name = name;
-        this.members = new ArrayList<>(members);
-        this.nationality = nationality;
-    }
+  private String name;
+  private List<Artist> members;
+  private String nationality;
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
+  /**
+   * @param name name of the artist
+   * @param nationality nationality of the artist
+   */
+  public Artist(String name, String nationality) {
+    this(name, Collections.emptyList(), nationality);
+  }
 
-    /**
-     * @return the members
-     */
-    public Stream<Artist> getMembers() {
-        return members.stream();
-    }
+  /**
+   * @param name name of the artist
+   * @param members artist members (if the artist is e.g. a group)
+   * @param nationality nationality of the artist
+   */
+  public Artist(String name, List<Artist> members, String nationality) {
+    Objects.requireNonNull(name);
+    Objects.requireNonNull(members);
+    Objects.requireNonNull(nationality);
+    this.name = name;
+    this.members = new ArrayList<>(members);
+    this.nationality = nationality;
+  }
 
-    /**
-     * @return the nationality
-     */
-    public String getNationality() {
-        return nationality;
-    }
+  /**
+   * @return the name
+   */
+  public String getName() {
+    return name;
+  }
 
-    public boolean isSolo() {
-        return members.isEmpty();
-    }
+  /**
+   * @return the members
+   */
+  public Stream<Artist> getMembers() {
+    return members.stream();
+  }
 
-    public boolean isFrom(String nationality) {
-        return this.nationality.equals(nationality);
-    }
+  /**
+   * @return the nationality
+   */
+  public String getNationality() {
+    return nationality;
+  }
 
-    @Override
-    public String toString() {
-        return getName();
-    }
+  /**
+   * @return true if there are no members attached to this artist
+   */
+  public boolean isSolo() {
+    return members.isEmpty();
+  }
 
-    public Artist copy() {
-        List<Artist> members = getMembers().map(Artist::copy).collect(toList());
-        return new Artist(name, members, nationality);
-    }
+  /**
+   * @param pNationality nationality
+   * @return true if the passed nationality equals to the one of the artist
+   */
+  public boolean isFrom(String pNationality) {
+    return this.nationality.equals(pNationality);
+  }
+
+  @Override
+  public String toString() {
+    return getName();
+  }
+
+  /**
+   * @return a deep copy of the artist
+   */
+  public Artist copy() {
+    List<Artist> membersTmp = getMembers().map(Artist::copy).collect(toList());
+    return new Artist(name, membersTmp, nationality);
+  }
 
 }

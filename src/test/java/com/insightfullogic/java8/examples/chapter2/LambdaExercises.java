@@ -13,6 +13,7 @@ import javax.swing.JButton;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class LambdaExercises {
 
 	@Test

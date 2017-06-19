@@ -3,6 +3,7 @@ package com.insightfullogic.java8.examples.chapter4;
 import org.junit.Assert;
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class MusicalCarriageTest {
 
     @Test
