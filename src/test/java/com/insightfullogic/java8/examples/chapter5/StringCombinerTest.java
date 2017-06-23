@@ -1,51 +1,53 @@
 package com.insightfullogic.java8.examples.chapter5;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
+@SuppressWarnings("javadoc")
 public class StringCombinerTest {
-    private StringCombiner combiner;
 
-    @Before
-    public void before() {
-        this.combiner = new StringCombiner(", ", "[", "]");
+  private StringCombiner combiner;
 
-        combiner.add("A").add("B").add("C").add("D");
-    }
+  @Before
+  public void before() {
+    this.combiner = new StringCombiner(", ", "[", "]");
 
-    @Test
-    public void add() throws Exception {
-        assertEquals("[A, B, C, D]", combiner.toString());
-    }
+    combiner.add("A").add("B").add("C").add("D");
+  }
 
-    @Test
-    public void mergeWithOther() throws Exception {
-        StringCombiner other = new StringCombiner(", ", "[", "]");
+  @Test
+  public void add() throws Exception {
+    assertEquals("[A, B, C, D]", combiner.toString());
+  }
 
-        other.add("E").add("F").add("G");
+  @Test
+  public void mergeWithOther() throws Exception {
+    StringCombiner other = new StringCombiner(", ", "[", "]");
 
-        this.combiner.merge(other);
+    other.add("E").add("F").add("G");
 
-        assertEquals("[A, B, C, D, E, F, G]", this.combiner.toString());
-    }
+    this.combiner.merge(other);
 
-    @Test
-    public void mergeWithEmpty() {
-        this.combiner.merge(new StringCombiner(", ", "[", "]"));
+    assertEquals("[A, B, C, D, E, F, G]", this.combiner.toString());
+  }
 
-        assertEquals("[A, B, C, D]", this.combiner.toString());
-    }
+  @Test
+  public void mergeWithEmpty() {
+    this.combiner.merge(new StringCombiner(", ", "[", "]"));
 
-    @Test
-    public void mergeSelf() throws Exception {
-        assertEquals("[A, B, C, D]", this.combiner.merge(this.combiner).toString());
-    }
+    assertEquals("[A, B, C, D]", this.combiner.toString());
+  }
 
-    @Test
-    public void twiceCallToString() throws Exception {
-        assertEquals("[A, B, C, D]", this.combiner.toString());
-        assertEquals("[A, B, C, D]", this.combiner.toString());
-    }
+  @Test
+  public void mergeSelf() throws Exception {
+    assertEquals("[A, B, C, D]", this.combiner.merge(this.combiner).toString());
+  }
+
+  @Test
+  public void twiceCallToString() throws Exception {
+    assertEquals("[A, B, C, D]", this.combiner.toString());
+    assertEquals("[A, B, C, D]", this.combiner.toString());
+  }
 }

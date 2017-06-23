@@ -1,6 +1,7 @@
 package com.insightfullogic.java8.examples.chapter8.observer;
 
 // BEGIN Aliens
+@SuppressWarnings("javadoc")
 public class Aliens implements LandingObserver {
 
     @Override

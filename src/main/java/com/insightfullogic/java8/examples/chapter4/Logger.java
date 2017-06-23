@@ -2,6 +2,7 @@ package com.insightfullogic.java8.examples.chapter4;
 
 import java.util.function.Supplier;
 
+@SuppressWarnings("javadoc")
 public class Logger {
 
   private boolean debug = true;

@@ -9,6 +9,7 @@ import java.util.function.Function;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class MapUsingReduceTest {
 
     @Test

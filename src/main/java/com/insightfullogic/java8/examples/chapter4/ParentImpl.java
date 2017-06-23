@@ -1,17 +1,18 @@
 package com.insightfullogic.java8.examples.chapter4;
 
+@SuppressWarnings("javadoc")
 public class ParentImpl implements Parent {
 
-    private String body;
+  private String body;
 
-    @Override
-    public void message(String body) {
-        this.body = body;
-    }
+  @Override
+  public void message(String pBody) {
+    this.body = pBody;
+  }
 
-    @Override
-    public String getLastMessage() {
-        return body;
-    }
+  @Override
+  public String getLastMessage() {
+    return body;
+  }
 
 }

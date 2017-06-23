@@ -2,6 +2,7 @@ package com.insightfullogic.java8.examples.chapter5.mutable_custom;
 
 import com.insightfullogic.java8.examples.chapter1.Album;
 
+@SuppressWarnings("javadoc")
 public final class AlbumSale {
 
     private final Album album;

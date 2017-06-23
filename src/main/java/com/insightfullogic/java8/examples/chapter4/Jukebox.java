@@ -1,11 +1,12 @@
 package com.insightfullogic.java8.examples.chapter4;
 
 // BEGIN body
+@SuppressWarnings("javadoc")
 public interface Jukebox {
 
-    public default String rock() {
-        return "... all over the world!";
-    }
+  public default String rock() {
+    return "... all over the world!";
+  }
 
 }
 // END body

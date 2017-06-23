@@ -1,20 +1,20 @@
 package com.insightfullogic.java8.answers.chapter6;
 
-import com.insightfullogic.java8.answers.chapter6.BuggyReduce;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class BuggyReduceTest {
 
-    @Test
-    public void sample() {
-        List<Integer> numbers = Arrays.asList(1, 2, 3);
-        int result = BuggyReduce.multiplyThrough(numbers);
-        assertEquals(30, result);
-    }
+  @Test
+  public void sample() {
+    List<Integer> numbers = Arrays.asList(1, 2, 3);
+    int result = BuggyReduce.multiplyThrough(numbers);
+    assertEquals(30, result);
+  }
 
 }

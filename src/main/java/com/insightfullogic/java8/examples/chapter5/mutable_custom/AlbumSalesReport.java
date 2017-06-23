@@ -1,5 +1,6 @@
 package com.insightfullogic.java8.examples.chapter5.mutable_custom;
 
+@SuppressWarnings("javadoc")
 public class AlbumSalesReport {
 
     public AlbumSalesReport() {
@@ -12,7 +13,7 @@ public class AlbumSalesReport {
     }
 
     public void acknowledgeSale(AlbumSale album) {
-
+      //dummy
     }
 
     public AlbumSalesReport merge(AlbumSalesReport right) {

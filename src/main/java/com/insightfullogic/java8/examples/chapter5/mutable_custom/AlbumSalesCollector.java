@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 
+@SuppressWarnings("javadoc")
 public class AlbumSalesCollector implements Collector<AlbumSale, AlbumSalesReport, AlbumSalesReport> {
 
     private static final Set<Characteristics> characteristics = new HashSet<>();

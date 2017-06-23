@@ -5,10 +5,11 @@ import java.util.stream.Stream;
 
 import com.insightfullogic.java8.exercises.Exercises;
 
+@SuppressWarnings("javadoc")
 public class WordCount {
 
-    public static Map<String, Long> countWords(Stream<String> names) {
-        return Exercises.replaceThisWithSolution();
-    }
+  public static Map<String, Long> countWords(Stream<String> names) {
+    return Exercises.replaceThisWithSolution();
+  }
 
 }
