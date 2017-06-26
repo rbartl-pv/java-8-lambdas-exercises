@@ -1,5 +1,6 @@
 package com.insightfullogic.java8.examples.chapter6;
 
+@SuppressWarnings("javadoc")
 public class MovingAverage {
 
     /*public static void sma() {

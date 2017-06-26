@@ -1,15 +1,15 @@
 package com.insightfullogic.java8.answers.chapter5;
 
-import com.insightfullogic.java8.answers.chapter5.GroupingBy;
-import org.junit.Test;
+import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class GroupingByTest {
 
     @Test

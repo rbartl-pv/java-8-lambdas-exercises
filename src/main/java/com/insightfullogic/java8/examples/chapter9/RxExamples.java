@@ -54,7 +54,7 @@ public class RxExamples {
 
   // Purely for imported code sample
   public void creationCodeSample() {
-    Observer<String> observer = null;
+    Observer<String> observer = new ObserverDummy();
 
     // BEGIN completing_observable
     observer.onNext("a");
@@ -67,6 +67,21 @@ public class RxExamples {
     observer.onError(new Exception());
     // END error_observable
 
+  }
+
+  private class ObserverDummy implements Observer<String> {
+
+    public void onCompleted() {
+      System.out.println("ObserverDummy.onCompleted");
+    }
+
+    public void onError(Throwable e) {
+      System.err.println("ObserverDummy.onError: " + e.getMessage());
+    }
+
+    public void onNext(String args) {
+      System.out.println("ObserverDummy.onNext. args: " + args);
+    }
   }
 
 }

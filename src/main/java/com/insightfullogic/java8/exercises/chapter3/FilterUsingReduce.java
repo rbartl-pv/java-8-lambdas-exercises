@@ -9,7 +9,9 @@ import com.insightfullogic.java8.exercises.Exercises;
 /**
  * Advanced Exercises Question 1
  */
+@SuppressWarnings("javadoc")
 public class FilterUsingReduce {
+
 
     public static <I> List<I> filter(Stream<I> stream, Predicate<I> predicate) {
         return Exercises.replaceThisWithSolution();

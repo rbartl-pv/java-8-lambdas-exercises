@@ -1,12 +1,12 @@
 package com.insightfullogic.java8.answers.chapter6;
 
-import com.insightfullogic.java8.answers.chapter6.SerialToParallel;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class SerialToParallelTest {
 
     @Test

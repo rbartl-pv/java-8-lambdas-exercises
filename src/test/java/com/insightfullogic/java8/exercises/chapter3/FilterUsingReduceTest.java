@@ -9,6 +9,7 @@ import java.util.function.Predicate;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class FilterUsingReduceTest {
 
     @Test

@@ -1,8 +1,13 @@
 package com.insightfullogic.java8.examples.chapter8.lambdabehave;
 
 import com.insightfullogic.java8.examples.chapter8.lambdabehave.example.StackSpec;
-import com.insightfullogic.java8.examples.chapter8.lambdabehave.reporting.*;
+import com.insightfullogic.java8.examples.chapter8.lambdabehave.reporting.ConsoleFormatter;
+import com.insightfullogic.java8.examples.chapter8.lambdabehave.reporting.Report;
+import com.insightfullogic.java8.examples.chapter8.lambdabehave.reporting.ReportFormatter;
+import com.insightfullogic.java8.examples.chapter8.lambdabehave.reporting.Result;
+import com.insightfullogic.java8.examples.chapter8.lambdabehave.reporting.SpecificationReport;
 
+@SuppressWarnings("javadoc")
 public enum Runner {
 
     current;

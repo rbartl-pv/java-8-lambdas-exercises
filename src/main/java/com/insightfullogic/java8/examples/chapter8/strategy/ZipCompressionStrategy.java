@@ -5,12 +5,13 @@ import java.io.OutputStream;
 import java.util.zip.ZipOutputStream;
 
 // BEGIN ZipCompressionStrategy
+@SuppressWarnings("javadoc")
 public class ZipCompressionStrategy implements CompressionStrategy {
 
-    @Override
-    public OutputStream compress(OutputStream data) throws IOException {
-        return new ZipOutputStream(data);
-    }
+  @Override
+  public OutputStream compress(OutputStream data) throws IOException {
+    return new ZipOutputStream(data);
+  }
 
 }
 // END ZipCompressionStrategy

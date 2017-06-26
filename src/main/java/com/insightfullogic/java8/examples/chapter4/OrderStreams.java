@@ -1,36 +1,40 @@
 package com.insightfullogic.java8.examples.chapter4;
 
 
-import com.insightfullogic.java8.examples.chapter1.Album;
-
 import java.util.List;
 
+import com.insightfullogic.java8.examples.chapter1.Album;
+
+@SuppressWarnings("javadoc")
 public class OrderStreams extends Order {
 
-    public OrderStreams(List<Album> albums) {
-        super(albums);
-    }
+  public OrderStreams(List<Album> albums) {
+    super(albums);
+  }
 
-    // BEGIN body
-public long countRunningTime() {
+  // BEGIN body
+  @Override
+  public long countRunningTime() {
     return albums.stream()
-            .mapToLong(album -> album.getTracks()
-                                     .mapToLong(track -> track.getLength())
-                                     .sum())
-            .sum();
-}
+        .mapToLong(album -> album.getTracks()
+            .mapToLong(track -> track.getLength())
+            .sum())
+        .sum();
+  }
 
-public long countMusicians() {
+  @Override
+  public long countMusicians() {
     return albums.stream()
-            .mapToLong(album -> album.getMusicians().count())
-            .sum();
-}
+        .mapToLong(album -> album.getMusicians().count())
+        .sum();
+  }
 
-public long countTracks() {
+  @Override
+  public long countTracks() {
     return albums.stream()
-            .mapToLong(album -> album.getTracks().count())
-            .sum();
-}
-    // END body
+        .mapToLong(album -> album.getTracks().count())
+        .sum();
+  }
+  // END body
 
 }

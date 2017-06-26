@@ -3,6 +3,7 @@ package com.insightfullogic.java8.examples.chapter8.template_method.traditional;
 import com.insightfullogic.java8.examples.chapter8.template_method.ApplicationDenied;
 
 // BEGIN LoanApplication
+@SuppressWarnings("javadoc")
 public abstract class LoanApplication {
 
     public void checkLoanApplication() throws ApplicationDenied {
