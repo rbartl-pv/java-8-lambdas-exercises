@@ -5,7 +5,7 @@ import static com.insightfullogic.java8.examples.chapter8.lambdabehave.Lets.desc
 import java.util.Stack;
 
 // BEGIN StackSpec
-@SuppressWarnings("javadoc")
+@SuppressWarnings({ "javadoc", "rawtypes" })
 public class StackSpec {
 
   {

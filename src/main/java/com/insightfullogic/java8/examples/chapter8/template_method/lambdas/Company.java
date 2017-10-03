@@ -5,17 +5,14 @@ import com.insightfullogic.java8.examples.chapter8.template_method.ApplicationDe
 @SuppressWarnings("javadoc")
 public class Company {
 
-  @SuppressWarnings("unused")
   public void checkIdentity() throws ApplicationDenied {
     // does nothing
   }
 
-  @SuppressWarnings("unused")
   public void checkProfitAndLoss() throws ApplicationDenied {
     // does nothing
   }
 
-  @SuppressWarnings("unused")
   public void checkHistoricalDebt() throws ApplicationDenied {
     // does nothing
   }
