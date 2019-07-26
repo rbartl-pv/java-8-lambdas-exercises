@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import org.openjdk.jmh.Main;
+import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.GenerateMicroBenchmark;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
@@ -45,7 +45,7 @@ public class ArraySum {
         .collect(toList());
   }
 
-  @GenerateMicroBenchmark
+  @Benchmark
   // BEGIN serial
   public int serialArraySum() {
     return albums.stream()
@@ -55,7 +55,7 @@ public class ArraySum {
   }
   // END serial
 
-  @GenerateMicroBenchmark
+  @Benchmark
   // BEGIN parallel
   public int parallelArraySum() {
     return albums.parallelStream()

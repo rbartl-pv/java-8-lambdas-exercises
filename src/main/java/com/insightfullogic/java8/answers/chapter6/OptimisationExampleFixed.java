@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import org.openjdk.jmh.Main;
+import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.GenerateMicroBenchmark;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
@@ -21,15 +21,7 @@ import org.openjdk.jmh.runner.RunnerException;
 public class OptimisationExampleFixed {
 
   public static void main(String[] ignore) throws RunnerException, IOException {
-    final String[] args = {
-        ".*OptimisationExampleFixed.*",
-        "-wi",
-        "10",
-        "-i",
-        "10",
-        "-f",
-        "1"
-    };
+    final String[] args = { ".*OptimisationExampleFixed.*", "-wi", "10", "-i", "10", "-f", "1" };
     Main.main(args);
   }
 
@@ -46,50 +38,37 @@ public class OptimisationExampleFixed {
   }
 
   private void addNumbers(List<Integer> container) {
-    IntStream.range(0, 1_000_000)
-        .forEach(container::add);
+    IntStream.range(0, 1_000_000).forEach(container::add);
   }
 
-  @GenerateMicroBenchmark
+  @Benchmark
   public int slowSumOfSquares() {
-    return linkedListOfNumbers.parallelStream()
-        .map(x -> x * x)
-        .reduce(0, (acc, x) -> acc + x);
+    return linkedListOfNumbers.parallelStream().map(x -> x * x).reduce(0, (acc, x) -> acc + x);
   }
 
-  @GenerateMicroBenchmark
+  @Benchmark
   public int serialSlowSumOfSquares() {
-    return linkedListOfNumbers.stream()
-        .map(x -> x * x)
-        .reduce(0, (acc, x) -> acc + x);
+    return linkedListOfNumbers.stream().map(x -> x * x).reduce(0, (acc, x) -> acc + x);
   }
 
-  @GenerateMicroBenchmark
+  @Benchmark
   public int intermediateSumOfSquares() {
-    return arrayListOfNumbers.parallelStream()
-        .map(x -> x * x)
-        .reduce(0, (acc, x) -> acc + x);
+    return arrayListOfNumbers.parallelStream().map(x -> x * x).reduce(0, (acc, x) -> acc + x);
   }
 
-  @GenerateMicroBenchmark
+  @Benchmark
   public int serialIntermediateSumOfSquares() {
-    return arrayListOfNumbers.stream()
-        .map(x -> x * x)
-        .reduce(0, (acc, x) -> acc + x);
+    return arrayListOfNumbers.stream().map(x -> x * x).reduce(0, (acc, x) -> acc + x);
   }
 
-  @GenerateMicroBenchmark
+  @Benchmark
   public int fastSumOfSquares() {
-    return arrayListOfNumbers.parallelStream()
-        .mapToInt(x -> x * x)
-        .sum();
+    return arrayListOfNumbers.parallelStream().mapToInt(x -> x * x).sum();
   }
 
-  @GenerateMicroBenchmark
+  @Benchmark
   public int serialFastSumOfSquares() {
-    return arrayListOfNumbers.stream()
-        .mapToInt(x -> x * x)
-        .sum();
+    return arrayListOfNumbers.stream().mapToInt(x -> x * x).sum();
   }
 
 }

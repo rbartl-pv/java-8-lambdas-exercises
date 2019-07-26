@@ -10,8 +10,8 @@ import java.util.function.IntFunction;
 import java.util.stream.IntStream;
 
 import org.openjdk.jmh.Main;
+import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.GenerateMicroBenchmark;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
@@ -35,7 +35,7 @@ public class DiceRolls {
     Main.main(args);
   }
 
-  @GenerateMicroBenchmark
+  @Benchmark
   // BEGIN serial
   public Map<Integer, Double> serialDiceRolls() {
     double fraction = 1.0 / N;
@@ -45,7 +45,7 @@ public class DiceRolls {
   }
   // END serial
 
-  @GenerateMicroBenchmark
+  @Benchmark
   // BEGIN parallel
   public Map<Integer, Double> parallelDiceRolls() {
     double fraction = 1.0 / N;

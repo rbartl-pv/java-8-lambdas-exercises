@@ -6,8 +6,8 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 /**
- * Advanced Exercises Question 1: Write an implementation of the Stream function map using only reduce and lambda expressions. You can return a List instead of
- * a Stream if you want.
+ * Advanced Exercises Question 1: Write an implementation of the Stream function map using only reduce and lambda expressions. You can
+ * return a List instead of a Stream if you want.
  */
 public class MapUsingReduce {
 
@@ -24,12 +24,16 @@ public class MapUsingReduce {
       // Stream.collect method could be used to implement more efficient mutable reduction,
       // but this exercise asks to use reduce method.
       List<O> newAcc = new ArrayList<>(acc);
+      System.out.println("Original List: " + newAcc);
       newAcc.add(mapper.apply(x));
+      System.out.println("List after mapping: " + newAcc);
       return newAcc;
     }, (List<O> left, List<O> right) -> {
+      System.out.println("List Left: " + left);
       // We are copying left to new list to avoid mutating it.
       List<O> newLeft = new ArrayList<>(left);
       newLeft.addAll(right);
+      System.out.println("List newLeft: " + left);
       return newLeft;
     });
   }

@@ -12,27 +12,32 @@ import org.junit.Test;
 @SuppressWarnings("javadoc")
 public class MapUsingReduceTest {
 
-    @Test
-    public void emptyList() {
-        assertMapped(Function.<Object>identity(), Collections.<Object>emptyList(), Collections.<Object>emptyList());
-    }
+  @Test
+  public void emptyList() {
+    assertMapped(Function.<Object>identity(), Collections.<Object>emptyList(), Collections.<Object>emptyList());
+  }
 
-    @Test
-    public void identityMapsToItself() {
-        assertMapped((Integer x) -> x, asList(1, 2, 3), asList(1, 2, 3));
-    }
+  @Test
+  public void identityMapsToItself() {
+    assertMapped((Integer x) -> x, asList(1, 2, 3), asList(1, 2, 3));
+  }
 
-    @Test
-    public void incrementingNumbers() {
-        assertMapped((Integer x) -> x + 2, asList(1, 2, 3), asList(3, 4, 5));
-    }
+  @Test
+  public void incrementingNumbers() {
+    assertMapped((Integer x) -> x + 2, asList(1, 2, 3), asList(3, 4, 5));
+  }
 
-    private <I, O> void assertMapped(Function<I, O> mapper, List<I> input, List<O> expectedOutput) {
-        List<O> output = MapUsingReduce.map(input.stream(), mapper);
-        assertEquals(expectedOutput, output);
+  @Test
+  public void mapNumersToStrings() {
+    assertMapped((Integer x) -> Integer.toString(x + 2), asList(1, 2, 3), asList("3", "4", "5"));
+  }
 
-        List<O> parallelOutput = MapUsingReduce.map(input.parallelStream(), mapper);
-        assertEquals(expectedOutput, parallelOutput);
-    }
+  private <I, O> void assertMapped(Function<I, O> mapper, List<I> input, List<O> expectedOutput) {
+    List<O> output = MapUsingReduce.map(input.stream(), mapper);
+    assertEquals(expectedOutput, output);
+
+    List<O> parallelOutput = MapUsingReduce.map(input.parallelStream(), mapper);
+    assertEquals(expectedOutput, parallelOutput);
+  }
 
 }

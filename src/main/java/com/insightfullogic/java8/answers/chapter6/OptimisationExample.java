@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import org.openjdk.jmh.Main;
+import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.GenerateMicroBenchmark;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
@@ -50,7 +50,7 @@ public class OptimisationExample {
         .forEach(container::add);
   }
 
-  @GenerateMicroBenchmark
+  @Benchmark
   // BEGIN slowSumOfSquares
   public int slowSumOfSquares() {
     return linkedListOfNumbers.parallelStream()
@@ -59,7 +59,7 @@ public class OptimisationExample {
   }
   // END slowSumOfSquares
 
-  @GenerateMicroBenchmark
+  @Benchmark
   public int fastSumOfSquares() {
     // TODO: implement faster version of slowSumOfSquares here
     return 0;
